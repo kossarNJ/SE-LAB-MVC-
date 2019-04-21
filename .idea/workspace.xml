@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60fbe5e4-08f2-455b-a054-651e6f353073" name="Default Changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MVC/Main.class" afterPath="$PROJECT_DIR$/out/production/MVC/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MVC/selab/mvc/controllers/AddStudentToCourseController.class" afterPath="$PROJECT_DIR$/out/production/MVC/selab/mvc/controllers/AddStudentToCourseController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MVC/selab/mvc/models/DataSet.class" afterPath="$PROJECT_DIR$/out/production/MVC/selab/mvc/models/DataSet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MVC/selab/mvc/models/entities/Course.class" afterPath="$PROJECT_DIR$/out/production/MVC/selab/mvc/models/entities/Course.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MVC/selab/mvc/models/entities/Student.class" afterPath="$PROJECT_DIR$/out/production/MVC/selab/mvc/models/entities/Student.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="60fbe5e4-08f2-455b-a054-651e6f353073" name="Default Changelist" comment="Commit Project">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -159,20 +151,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -542,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555845241539</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit Project">
+      <created>1555845470718</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555845470718</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -605,7 +590,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="SE LAB Task#2 (MVC)" />
-    <option name="LAST_COMMIT_MESSAGE" value="SE LAB Task#2 (MVC)" />
+    <MESSAGE value="Commit Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit Project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
