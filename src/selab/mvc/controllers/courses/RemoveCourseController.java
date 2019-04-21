@@ -5,8 +5,8 @@ import selab.mvc.controllers.Controller;
 import selab.mvc.models.DataContext;
 import selab.mvc.models.DataSet;
 import selab.mvc.models.entities.Course;
-import selab.mvc.models.entities.Student;
 import selab.mvc.views.JsonView;
+import selab.mvc.views.StaticHtmlView;
 import selab.mvc.views.View;
 
 import java.io.IOException;
@@ -27,12 +27,17 @@ public class RemoveCourseController extends Controller {
         if (!method.equals("POST"))
             throw new IOException("Method not supported");
 
+
         JSONObject input = readJson(body);
         String courseNo = input.getString("courseNo");
 
-        // TODO: Add codes for removing the course
 
-        return null;
+        Course course = this.dataContext.getCourses().get(courseNo);
+        course.removeCourseForStudents();
+
+        this.dataContext.getCourses().remove(course);
+
+        return new StaticHtmlView("static/index.html");
     }
 
     @Override

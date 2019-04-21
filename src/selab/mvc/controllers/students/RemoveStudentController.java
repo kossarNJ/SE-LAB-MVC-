@@ -6,6 +6,7 @@ import selab.mvc.models.DataContext;
 import selab.mvc.models.DataSet;
 import selab.mvc.models.entities.Student;
 import selab.mvc.views.JsonView;
+import selab.mvc.views.StaticHtmlView;
 import selab.mvc.views.View;
 
 import java.io.IOException;
@@ -29,9 +30,12 @@ public class RemoveStudentController extends Controller {
         JSONObject input = readJson(body);
         String studentNo = input.getString("studentNo");
 
-        // TODO: Add codes for removing the student
+        Student student = this.dataContext.getStudents().get(studentNo);
+        student.removeStudentFromCourses();
 
-        return null;
+        this.dataContext.getStudents().remove(student);
+
+        return new StaticHtmlView("static/index.html");
     }
 
     @Override

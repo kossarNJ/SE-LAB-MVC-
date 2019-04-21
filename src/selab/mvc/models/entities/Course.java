@@ -1,7 +1,7 @@
 package selab.mvc.models.entities;
 
+import selab.mvc.models.DataSet;
 import selab.mvc.models.Model;
-import sun.misc.Regexp;
 
 import java.util.regex.Pattern;
 
@@ -12,6 +12,7 @@ public class Course implements Model {
     private String endTime = null;
     private Weekday weekday;
 
+    private DataSet<Enrollment> enrollments = new DataSet<>();
 
     @Override
     public String getPrimaryKey() {
@@ -52,6 +53,10 @@ public class Course implements Model {
 
     public String getEndTime() { return this.endTime; }
 
+    public void addStudent(Enrollment enrollment) {
+        this.enrollments.add(enrollment);
+    }
+
     public void setWeekday(Weekday value) {
         this.weekday = value;
     }
@@ -61,13 +66,35 @@ public class Course implements Model {
     }
 
     public float getAverage() {
-        // TODO: Calculate and return the average of the points
-        return 0;
+        float avg = 0;
+        for (Enrollment e : this.enrollments.getAll()) {
+            avg += Integer.parseInt(e.getPoints());
+        }
+        if (this.enrollments.getAll().size() > 0) {
+            avg /= this.enrollments.getAll().size();
+        }
+        return avg;
     }
 
     public String getStudents() {
-        // TODO: Return a comma separated list of student names
+        String result = "";
+        for(Enrollment e : this.enrollments.getAll()) {
+            result += ", " + e.getStudent().getName();
+        }
+        if (result.length() > 0) {
+            return result.substring(2);
+        }
         return "-";
+    }
+
+    public void removeCourseForStudents() {
+        for (Enrollment e : this.enrollments.getAll()) {
+            e.getStudent().removeEnrollment(e);
+        }
+    }
+
+    public void removeEnrollment(Enrollment e) {
+        this.enrollments.remove(e);
     }
 
     /**

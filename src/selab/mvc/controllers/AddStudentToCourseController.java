@@ -2,6 +2,10 @@ package selab.mvc.controllers;
 
 import org.json.JSONObject;
 import selab.mvc.models.DataContext;
+import selab.mvc.models.entities.Course;
+import selab.mvc.models.entities.Enrollment;
+import selab.mvc.models.entities.Student;
+import selab.mvc.views.StaticHtmlView;
 import selab.mvc.views.View;
 
 import java.io.IOException;
@@ -23,7 +27,15 @@ public class AddStudentToCourseController extends Controller {
         String courseNo = input.getString("courseNo");
         String points = input.getString("points");
 
-        // TODO: Add required codes to associate the student with course
-        return null;
+        Student student = this.dataContext.getStudents().get(studentNo);
+        Course course = this.dataContext.getCourses().get(courseNo);
+        Enrollment enrollment = new Enrollment(student, course, points);
+
+
+        student.addCourse(enrollment);
+        course.addStudent(enrollment);
+
+        return new StaticHtmlView("static/index.html");
+
     }
 }

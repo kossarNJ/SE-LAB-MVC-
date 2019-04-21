@@ -1,5 +1,6 @@
 package selab.mvc.models.entities;
 
+import selab.mvc.models.DataSet;
 import selab.mvc.models.Model;
 
 import java.util.regex.Pattern;
@@ -7,6 +8,8 @@ import java.util.regex.Pattern;
 public class Student implements Model {
     private String name;
     private String studentNo;
+
+    private DataSet<Enrollment> enrollments = new DataSet<>();
 
     @Override
     public String getPrimaryKey() {
@@ -24,14 +27,40 @@ public class Student implements Model {
     }
     public String getStudentNo() { return this.studentNo; }
 
+    public void removeStudentFromCourses() {
+        for (Enrollment e : this.enrollments.getAll()) {
+            e.getCourse().removeEnrollment(e);
+        }
+    }
+
     public float getAverage() {
-        // TODO: Calculate and return the average of the points
-        return 0;
+        float avg = 0;
+        for (Enrollment e : this.enrollments.getAll()) {
+            avg += Integer.parseInt(e.getPoints());
+        }
+        if (this.enrollments.getAll().size() > 0) {
+            avg /= this.enrollments.getAll().size();
+        }
+        return avg;
     }
 
     public String getCourses() {
-        // TODO: Return a comma separated list of course names
+        String result = "";
+        for(Enrollment e : this.enrollments.getAll()) {
+            result += ", " + e.getCourse().getTitle();
+        }
+        if (result.length() > 0) {
+            return result.substring(2);
+        }
         return "-";
+    }
+
+    public void removeEnrollment(Enrollment e) {
+        this.enrollments.remove(e);
+    }
+
+    public void addCourse(Enrollment enrollment) {
+        this.enrollments.add(enrollment);
     }
 
     /**
