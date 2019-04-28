@@ -7,7 +7,7 @@
         <fileset dir="${basedir}/lib">
             <include name="*.jar"/>
         </fileset>
-        <pathelement path="${basedir}/out"> </pathelement>
+        <pathelement path="${basedir}/build/"> </pathelement>
     </path>
 
     <target name="compile" depends="init">
@@ -31,10 +31,14 @@
 
     <target name="test" depends="test-compile">
 
-        <junit printsummary="yes" haltonfailure="no">
+        <junit printsummary="yes" haltonfailure="yes">
             <classpath refid="classpath" />
+            <test name="test.JavaTest">
+                <formatter type="plain"/>
+                    </test>
 
-            <classpath location="${basedir}/src/test/" />
+
+
         </junit>
     </target>
 
