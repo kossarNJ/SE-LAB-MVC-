@@ -30,14 +30,12 @@
     </target>
 
     <target name="test" depends="test-compile">
-        <jar destfile="${basedir}/build/test.jar">
-            <fileset dir="${basedir}/build"/>
-            <zipfileset includes="**/*.class" src="${basedir}/lib/junit-4.11.jar"/>
-            <manifest>
-                <attribute name="Main-Class"
-                           value="Main"/>
-            </manifest>
-        </jar>
+
+        <junit printsummary="yes" haltonfailure="no">
+            <classpath refid="classpath" />
+
+            <classpath location="${basedir}/src/test/" />
+        </junit>
     </target>
 
     <target name="lint">
