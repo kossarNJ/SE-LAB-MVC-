@@ -25,6 +25,21 @@
         </jar>
     </target>
 
+    <target name="test-compile" depends="init">
+        <javac srcdir="${basedir}/src/test" destdir="${basedir}/build" classpathref="classpath"/>
+    </target>
+
+    <target name="test" depends="test-compile">
+        <jar destfile="${basedir}/build/test.jar">
+            <fileset dir="${basedir}/build"/>
+            <zipfileset includes="**/*.class" src="${basedir}/lib/junit-4.11.jar"/>
+            <manifest>
+                <attribute name="Main-Class"
+                           value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+
     <target name="lint">
         <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
                  classpath="${basedir}/lib/checkstyle-8.19-all.jar"/>
