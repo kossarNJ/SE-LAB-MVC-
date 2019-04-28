@@ -25,7 +25,7 @@
         </jar>
     </target>
 
-    <target name="lint" depends="make">
+    <target name="lint">
         <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
                  classpath="${basedir}/lib/checkstyle-8.19-all.jar"/>
 
